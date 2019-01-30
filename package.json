@@ -15,12 +15,20 @@
     "@storybook/addons": "^4.1.11",
     "@storybook/cli": "^4.1.11",
     "@storybook/react": "^4.1.11",
+    "@storybook/storybook-deployer": "^2.8.1",
     "babel-loader": "^8.0.5",
     "stylelint": "^9.10.1"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build:docs": "build-storybook -c .storybook -o .out",
+    "pub:docs": "yarn build:docs && storybook-to-ghpages --existing-output-dir=.out"
+  },
+  "storybook-deployer": {
+    "gitUsername": "rabbit-ui",
+    "gitEmail": "szuluoqian@163.com",
+    "commitMessage": "docs: deploy docs"
   },
   "author": "",
   "license": "ISC"
